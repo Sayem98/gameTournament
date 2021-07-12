@@ -1,0 +1,34 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="{% static 'login_site/login.css' %}">
+<title> Login </title>
+</head>
+<body>
+  <body>
+    <div class="login-page">
+      <div class="form">
+        <div class="login">
+          <div class="login-header">
+            <h3>LOGIN</h3>
+            <p>Please enter your credentials to login.</p>
+          </div>
+        </div>
+        <form class="login-form" method="post", action="{% url 'login' %}">
+            {% csrf_token %}
+          {{ form }}
+            {% if in_valid_mail is True %}
+                <h4>Invalid email address.</h4>
+            {% endif %}
+            {% if in_valid_password is True %}
+                <h4>Password invalid.</h4>
+            {% endif %}
+          <button>login</button>
+          <p class="message">Not registered? <a href="{% url 'register' %}">Create an account</a></p>
+        </form>
+      </div>
+    </div>
+</body>
+</body>
+</html>
