@@ -4,6 +4,7 @@ from .forms import LoginForm, RegisterForm
 from .models import UserModel
 from django.http import HttpResponseRedirect
 from django.urls import reverse
+from django.shortcuts import redirect
 
 
 # Create your views here.
@@ -27,7 +28,8 @@ class RegisterView(View):
                 user = UserModel(your_name=request.POST['your_name'], email=request.POST['email'],
                                  password=request.POST['password'])
                 user.save()
-                return HttpResponseRedirect(reverse('login'))
+                # return HttpResponseRedirect(reverse('login'))
+                return redirect('login')
 
 
 class LoginView(View):
