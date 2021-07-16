@@ -1,0 +1,102 @@
+body{
+    background-color: gray;
+}
+
+#profile-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+
+
+}
+
+
+
+#div-1 {
+
+    display: flex;
+    flex-direction: column;
+    background-color: #cccccc;
+    width: 20%;
+    height: 600px;
+    margin-top: 15%;
+    margin-bottom: 25%;
+
+    overflow: fragments;
+    box-shadow: 1px 1px 12px rgba(0,0,0,0.4);
+}
+
+#user-name{
+    padding: 1rem 1rem 1rem 1rem;
+    text-align: center;
+    background-color: #d1e7ff;
+    width: 95%;
+    height: 10%;
+    margin-left: .3rem;
+    margin-top: .5rem;
+    margin-right: .2rem;
+
+    font-size: 2vw;
+
+    font-weight: bold;
+    color: black;
+    border-radius: 3%;
+    box-shadow: 1px 1px 12px rgba(0,0,0,0.4);
+
+}
+
+
+
+#user-email{
+    background-color: gainsboro;
+    color: #2a7aaf;
+    font-size: 1.3vw;
+    margin-top: 1rem;
+    height: 5%;
+    padding-top: .5rem;
+    box-shadow: 1px 1px 12px rgba(0,0,0,0.4);
+
+}
+#user-image{
+
+    padding: 1rem 1rem 1rem 1rem;
+    border-radius: 50%;
+    box-shadow: .2px .4px .2px rgba(0,0,0,0.4);
+}
+#new-tournaments{
+
+    background-color: whitesmoke;
+    color: black;
+    width: 60%;
+    text-align: center;
+
+
+
+}
+#new-tournaments h1{
+    font-size: 3vw;
+
+    text-align: center;
+    display: block;
+    margin-top: 2rem;
+    background-color: gainsboro;
+    box-shadow: 1px 1px 12px rgba(0,0,0,0.4);
+    margin-right: 30%;
+    margin-left: 30%;
+}
+#catagories{
+    background-color: #b983ff;
+    width: 20%;
+    text-align: center;
+
+}
+
+#catagories h1{
+    font-size: 3vw;
+    padding: 1rem;
+}
+#all_catagories{
+    display: flex;
+    flex-direction: column;
+}

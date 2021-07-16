@@ -7,6 +7,8 @@ from django.urls import reverse
 from django.shortcuts import redirect
 
 
+
+
 # Create your views here.
 class RegisterView(View):
     def get(self, request):
@@ -44,6 +46,7 @@ class LoginView(View):
         if form.is_valid():
             try:
                 user = UserModel.objects.get(email=request.POST['email'])
+
             except:
                 user = None
 
@@ -63,9 +66,7 @@ class LoginView(View):
                         'in_valid_mail': False,
                         'in_valid_password': True
                     })
-            return render(request, 'login-site/welcome.html', {
-                'user': user
-            })
+            return redirect('home', user.id)
         return render(request, 'login-site/login.html', {
             'form': form
         })

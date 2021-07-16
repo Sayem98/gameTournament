@@ -1,10 +1,34 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'profile_site/navi.html' %}
+{% load static %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'profile_site/profile.css' %}">
+{% endblock %}
+{% block content %}
+    <div id="profile-container">
+        <div id="div-1">
 
-</body>
-</html>
+
+            <h5 id="user-name">Welcome&nbsp;{{ user.your_name }}</h5>
+            <img src="{% static 'Me.png' %}" id="user-image">
+            <h5 id="user-email">PUBG id: 123456789</h5>
+            <h5 id="user-email">Phone: 01913864652</h5>
+            <h5 id="user-email">Email:&nbsp;{{ user.email }}</h5>
+
+
+        </div>
+        <div id="new-tournaments">
+            <h1>Tournaments</h1>
+        </div>
+        <div id="catagories">
+            <H1>Catagories</H1>
+            <div id="all_catagories">
+                {% for cata in catagories %}
+                 <h6><link href="">{{ cata }}</h6>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+
