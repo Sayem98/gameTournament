@@ -70,7 +70,7 @@ body{
     color: black;
     width: 60%;
     text-align: center;
-
+    box-shadow: 1px 1px 12px rgba(0,0,0,0.5);
 
 
 }
@@ -89,14 +89,35 @@ body{
     background-color: #b983ff;
     width: 20%;
     text-align: center;
+    box-shadow: 1px 1px 12px rgba(0,0,0,0.4);
 
 }
 
 #catagories h1{
     font-size: 3vw;
     padding: 1rem;
+    box-shadow: 1px 1px 12px rgba(0,0,0,0.4);
 }
 #all_catagories{
     display: flex;
     flex-direction: column;
+    box-shadow: 1px 1px 12px rgba(0,0,0,0.4);
+}
+
+#my_tournaments{
+    display: flex;
+    flex-direction: row;
+    margin-top: 10%;
+    background-color: #5b80b2;
+    padding: 1rem;
+    justify-content: space-around;
+    box-shadow: 1px 1px 12px rgba(0,0,0,0.4);
+    flex-wrap: wrap;
+    height: 120vh;
+}
+#one-tournament{
+    background-color: #4b6b8c;
+    padding: .5rem;
+    box-shadow: 1px 1px 12px rgba(0,0,0,0.4);
+    width: 30.333333333%;
 }

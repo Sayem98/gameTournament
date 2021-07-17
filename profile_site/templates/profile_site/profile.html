@@ -17,7 +17,15 @@
 
         </div>
         <div id="new-tournaments">
-            <h1>Tournaments</h1>
+            <h1>My Tournaments</h1>
+            <div id="my_tournaments">
+                {% for tournament in all_tournaments %}
+                    <div id="one-tournament">
+                        <h3>Game type:{{ tournament.game_type }}</h3>
+                        <h4>Tournament Name: {{ tournament.tournament_name }}</h4>
+                    </div>
+                {% endfor %}
+            </div>
         </div>
         <div id="catagories">
             <H1>Catagories</H1>

@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>tournament</title>
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'tournaments/FORM.css' %}">
+    <link rel="stylesheet" href="{% static 'tournaments/styles.css' %}">
+</head>
+
+<body>
+    <form style="width: 549px;margin-left: 50px;" id="tournaments" method="post" action="{% url 'new_tournaments' %}">
+            {% csrf_token %}
+            <h1 style="font-size: 20px;">Create Tournament:</h1>
+            {{ form }}
+            <button type="submit"> Submit </button>
+
+    </form>
+    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+</body>
+
+</html>

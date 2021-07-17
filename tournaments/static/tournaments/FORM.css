@@ -1,0 +1,29 @@
+hr {
+  height: 2px;
+}
+
+hr {
+  height: 2px;
+}
+
+#tournaments{
+  display: flex;
+  flex-direction: column;
+  background-color: #4b6b8c;
+  margin-top: 15%;
+  margin-left: 80%;
+  padding: 1rem;
+}
+#tournaments h1{
+  text-align: center;
+  display: block;
+  background-color: #4d4d4d;
+  margin-left: 30%;
+  margin-right: 30%;
+  box-shadow: 1px 1px 12px rgba(0,0,0,0.4);
+}
+#tournaments button{
+  margin-top: 10px;
+  background-color: #cccccc;
+  margin-left: 80%;
+}
