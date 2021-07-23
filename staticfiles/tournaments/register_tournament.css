@@ -1,0 +1,25 @@
+form{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background-color: #94aba1;
+    width: 30%;
+    margin-top: 7%;
+    margin-left: 30%;
+    padding: 4rem;
+    text-align: center;
+    border-radius: 10px;
+}
+form input{
+    margin-left: 10%;
+    margin-right: 10%;
+    width: 80%;
+    height: 30px;
+    border-radius: 10px;
+}
+form button{
+    margin-left: 60%;
+    margin-right: 20%;
+    border-radius: 10px;
+}

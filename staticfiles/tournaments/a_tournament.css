@@ -1,0 +1,61 @@
+#game_data{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background-color: #0dbf92;
+    width: 55%;
+
+    margin-top: 3%;
+    padding: 2rem;
+    text-align: center;
+    font-size: 1.5vw;
+    border-radius: 10px;
+
+}
+
+#name{
+    display: inline;
+    background-color: #53575a;
+    padding: 1rem;
+    border-radius: 25px;
+}
+#game_data button{
+    background-color: #4b6b8c;
+    padding: .3rem;
+    margin-left: 70%;
+    border-radius: 10px;
+}
+
+#registered_teams{
+    background-color: #4b6b8c;
+    margin-top: 3%;
+    padding: 1rem;
+    width: 40%;
+    border-radius: 10px;
+    text-align: center;
+}
+#all{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 2rem;
+    border-radius: 10px;
+
+}
+#registered_team{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    background-color: #94aba1;
+    justify-content: space-around;
+    text-align: center;
+    border-radius: 10px;
+
+}
+#registered_team p{
+    padding: .5rem;
+    font-size: 2vw;
+
+}
