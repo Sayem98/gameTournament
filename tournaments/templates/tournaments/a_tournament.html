@@ -1,0 +1,31 @@
+{% extends 'profile_site/navi.html' %}
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'tournaments/a_tournament.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div id="all">
+    <div id="game_data">
+        <h1 id="name">{{ tournament.tournament_name| title }}</h1>
+        <h1>{{ tournament.game_type|title }}</h1>
+
+        <h1>Fee: {{ tournament.fee }}</h1>
+        <h1>Teams: {{ tournament.team_numbers }}</h1>
+        <h1>by {{ creator }}</h1>
+        <h1>slot left: {{ slots }}</h1>
+        <form action="{% url 'register-a-tournament' tournament.id %}" method="get"><button type="submit">Register</button></form>
+
+    </div>
+    <div id="registered_teams">
+        <h1>Registered Teams</h1>
+        <div id="registered_team">
+            {% for team in teams %}
+            <p>{{ team.team_name }} Lead by <b>{{ team.leader }}</b></p>
+        {% endfor %}
+        </div>
+    </div>
+
+    </div>
+{% endblock %}

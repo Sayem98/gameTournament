@@ -8,23 +8,33 @@ header a img{
 margin-top: 4px;
 }
 .login-page {
-  width: 360px;
+  width: 400px;
   padding: 8% 0 0;
   margin: auto;
+  border-radius: 10px;
 }
 .login-page .form .login{
   margin-top: -31px;
-margin-bottom: 26px;
+  margin-bottom: 26px;
+}
+.login-page .form .login .login-header h3{
+  border-radius: 10px;
+  background-color: #0dbf92;
+  display: inline;
+  width: 100px;
+  padding: .5rem;
+
 }
 .form {
   position: relative;
   z-index: 1;
-  background: #FFFFFF;
+  background: #baf5ff;
   max-width: 360px;
   margin: 0 auto 100px;
   padding: 45px;
   text-align: center;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  border-radius: 10px;
 }
 .form input {
   font-family: "Roboto", sans-serif;
@@ -36,6 +46,8 @@ margin-bottom: 26px;
   padding: 15px;
   box-sizing: border-box;
   font-size: 14px;
+  border-radius: 5px;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
 .form button {
   font-family: "Roboto", sans-serif;
@@ -51,11 +63,14 @@ margin-bottom: 26px;
   -webkit-transition: all;
   transition: all;
   cursor: pointer;
+  border-radius: 10px;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
 .form .message {
   margin: 15px 0 0;
-  color: #b3b3b3;
+  color: #0b2a38;
   font-size: 12px;
+
 }
 .form .message a {
   color: #4CAF50;
@@ -75,4 +90,11 @@ body {
   font-family: "Roboto", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.login-header{
+  background-color: #0dbf92;
+  border-radius: 10px;
+  padding: 1rem;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }

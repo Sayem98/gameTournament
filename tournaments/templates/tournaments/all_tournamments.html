@@ -1,0 +1,24 @@
+{% extends 'profile_site/navi.html' %}
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'tournaments/all_tournaments.css' %}">
+{% endblock %}
+{% block content %}
+    <h1>All Tournaments</h1>
+    <div id="all_tournaments">
+        {% for tournament in all_tournaments %}
+            <div id="a">
+                <a href="{% url 'a-tournament' tournament.id %}">
+                    <h3 id="yo">{{ tournament.tournament_name.capitalize }}</h3>
+                </a>
+                <h4>{{ tournament.game_type.capitalize }}</h4>
+                <h5>Fee: {{ tournament.fee }}</h5>
+                <h5>Creator: {{ tournament.your_email }}</h5>
+            </div>
+
+        {% endfor %}
+
+    </div>
+
+{% endblock %}

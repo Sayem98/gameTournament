@@ -8,16 +8,31 @@
         <div id="div-1">
 
 
-            <h5 id="user-name">Welcome&nbsp;{{ user.your_name }}</h5>
-            <img src="{% static 'Me.png' %}" id="user-image">
-            <h5 id="user-email">PUBG id: 123456789</h5>
-            <h5 id="user-email">Phone: 01913864652</h5>
+            <h5 id="user-name">Welcome&nbsp;{{ user.your_name.split.pop }}</h5>
+            <img src="{{ user.user_image.url }}" id="user-image">
+            <h5 id="user-email">PUBG id:{{ user.pubgID }}</h5>
+            <h5 id="user-email">Call of duty id:{{ user.Call_of_duty_id }}</h5>
+            <h5 id="user-email">Sea of theves id:{{ user.Sea_of_theves_id}}</h5>
+            <h5 id="user-email">Phone:{{ user.phone }}</h5>
             <h5 id="user-email">Email:&nbsp;{{ user.email }}</h5>
 
 
         </div>
         <div id="new-tournaments">
-            <h1>Tournaments</h1>
+            <h1>My Tournaments</h1>
+            <form method="get" action="{% url 'new_tournaments' %}">
+                <button>Create</button>
+            </form>
+            <div id="my_tournaments">
+                {% for tournament in all_tournaments %}
+                    <div id="one-tournament">
+                        <h3>Game type:{{ tournament.game_type }}</h3>
+                        <a id="yo" href="{% url 'a-tournament' tournament.id %}">
+                            <h4>Name: {{ tournament.tournament_name }}</h4>
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
         </div>
         <div id="catagories">
             <H1>Catagories</H1>

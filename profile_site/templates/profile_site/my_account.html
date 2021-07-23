@@ -1,0 +1,33 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>My Account</title>
+    <link rel="stylesheet" href="{% static 'profile_site/my_account.css' %}">
+</head>
+<body>
+    <div id="profile-container">
+        <div id="div-1">
+
+
+            <h5 id="user-name">Welcome&nbsp;{{ user.your_name.split.pop }}</h5>
+            <img src="{{ user.user_image.url }}" id="user-image">
+            <h5 id="user-email">PUBG id:{{ user.pubgID }}</h5>
+            <h5 id="user-email">Call of duty id:{{ user.Call_of_duty_id }}</h5>
+            <h5 id="user-email">Sea of theves id:{{ user.Sea_of_theves_id}}</h5>
+            <h5 id="user-email">Phone:{{ user.phone }}</h5>
+            <h5 id="user-email">Email:&nbsp;{{ user.email }}</h5>
+
+
+        </div>
+    </div>
+    <div>
+
+    </div>
+
+</body>
+</html>

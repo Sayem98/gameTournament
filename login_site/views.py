@@ -7,8 +7,6 @@ from django.urls import reverse
 from django.shortcuts import redirect
 
 
-
-
 # Create your views here.
 class RegisterView(View):
     def get(self, request):
@@ -19,19 +17,26 @@ class RegisterView(View):
         })
 
     def post(self, request):
-        form = RegisterForm(request.POST)
+        form = RegisterForm(request.POST, request.FILES)
         if request.POST['password'] != request.POST['confirm_password']:
             return render(request, 'login-site/register.html', {
                 'form': form,
                 'pass_not_match': True
             })
         else:
+
             if form.is_valid():
-                user = UserModel(your_name=request.POST['your_name'], email=request.POST['email'],
-                                 password=request.POST['password'])
-                user.save()
-                # return HttpResponseRedirect(reverse('login'))
-                return redirect('login')
+                    user = UserModel(your_name=request.POST['your_name'], email=request.POST['email'],
+                                     password=request.POST['password'], user_image=request.FILES['user_image'],
+                                     pubgID=request.POST['pubgID'], Sea_of_theves_id=request.POST['Sea_of_theves_id'],
+                                     Call_of_duty_id=request.POST['Call_of_duty_id'], phone=request.POST['phone'])
+
+                    user.save()
+                    return redirect('login')
+            return render(request, 'login-site/register.html', {
+                'form': form,
+                'pass_not_match': False
+            })
 
 
 class LoginView(View):
