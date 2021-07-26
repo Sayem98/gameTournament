@@ -3,9 +3,9 @@
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: space-between;
-    background-color: #0dbf92;
-    width: 55%;
-
+    background-color: #328f8a;
+    width: 60%;
+    height: 500px;
     margin-top: 3%;
     padding: 2rem;
     text-align: center;
@@ -13,27 +13,56 @@
     border-radius: 10px;
 
 }
+#game_data h2{
+    font-size: 2.5vw;
+}
 
 #name{
     display: inline;
-    background-color: #53575a;
+    background-color: #94aba1;
     padding: 1rem;
     border-radius: 25px;
+    animation-name: name-ani;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+}
+@keyframes name-ani {
+  0%   {background-color: red;}
+  25%  {background-color: yellow;}
+  50%  {background-color: blue;}
+  100% {background-color: green;}
 }
 #game_data button{
-    background-color: #4b6b8c;
+
     padding: .3rem;
     margin-left: 70%;
     border-radius: 10px;
-}
+    background-color: #94aba1;
+    border-bottom-style: none;
+    border-left-style: none;
+    border-right-style: none;
+    border-top-style: none;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 
+}
+#game_data button:hover {background-color: #3e8e41}
+
+#game_data button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
 #registered_teams{
     background-color: #4b6b8c;
     margin-top: 3%;
     padding: 1rem;
-    width: 40%;
+    width: 35%;
     border-radius: 10px;
     text-align: center;
+}
+#registered_teams h1{
+    font-size: 3vw;
+    margin-top: 10%;
 }
 #all{
     display: flex;
@@ -48,14 +77,54 @@
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    background-color: #94aba1;
+    background-color: #2c81ba;
     justify-content: space-around;
     text-align: center;
     border-radius: 10px;
+    height: 300px;
 
 }
 #registered_team p{
     padding: .5rem;
     font-size: 2vw;
 
+}
+#requested_team{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    background-color: #2c81ba;
+    justify-content: space-around;
+    text-align: center;
+    border-radius: 10px;
+    height: 300px;
+}
+#requested_team button{
+    font-size: 1.5vw;
+
+    border-radius: 10px;
+
+    margin-left: 15px;
+    background-color: #94aba1;
+    border-bottom-style: none;
+    border-left-style: none;
+    border-right-style: none;
+    border-top-style: none;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+
+}
+#requested_team button:hover {background-color: #3e8e41}
+
+#requested_team button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+#requested_team h7{
+    padding-left: .5rem;
+    color: green;
+}
+
+h8{
+    font-size: 1.5vw;
 }

@@ -7,25 +7,49 @@
 
 {% block content %}
     <div id="all">
-    <div id="game_data">
-        <h1 id="name">{{ tournament.tournament_name| title }}</h1>
-        <h1>{{ tournament.game_type|title }}</h1>
+        <div id="game_data">
+            <h1 id="name">{{ tournament.tournament_name| title }}</h1>
+            <h2>{{ tournament.game_type|title }}</h2>
 
-        <h1>Fee: {{ tournament.fee }}</h1>
-        <h1>Teams: {{ tournament.team_numbers }}</h1>
-        <h1>by {{ creator }}</h1>
-        <h1>slot left: {{ slots }}</h1>
-        <form action="{% url 'register-a-tournament' tournament.id %}" method="get"><button type="submit">Register</button></form>
+            <h2>Fee: {{ tournament.fee }}Tk</h2>
+            <h2>Teams: {{ tournament.team_numbers }}</h2>
+            <h2>Creator: {{ creator.your_name }}<br>
+                <h8>{{ creator.email }}</h8>
+            </h2>
 
-    </div>
-    <div id="registered_teams">
-        <h1>Registered Teams</h1>
-        <div id="registered_team">
-            {% for team in teams %}
-            <p>{{ team.team_name }} Lead by <b>{{ team.leader }}</b></p>
-        {% endfor %}
+            <h2>slot left: {{ slots }}</h2>
+            {% if is_creator %}
+                <form action="{% url 'update-tournament' tournament.id %}" method="get">
+                    <button type="submit">Update</button>
+                </form>
+            {% else %}
+                <form action="{% url 'register-a-tournament' tournament.id %}" method="get">
+                    <button type="submit">Register</button>
+                </form>
+            {% endif %}
+
         </div>
-    </div>
+        <div id="registered_teams">
+            <h1>Registered Teams</h1>
+            <div id="registered_team">
+                {% for team in teams %}
+                    <p>{{ team.team_name }} Lead by <b>{{ team.leader.your_name }}</b></p>
+                {% endfor %}
+            </div>
+            {% if is_creator %}
+                <h1>Requested teams</h1>
+                <div id="requested_team">
+                    {% for team in teams %}
+                        <p>{{ team.team_name }} Lead by <b>{{ team.leader.your_name }}
+                            <h7>Paid</h7>
+                            <button>Add</button>
+                        </b></p>
+                    {% endfor %}
+                </div>
+            {% else %}
+            {% endif %}
+
+        </div>
 
     </div>
 {% endblock %}

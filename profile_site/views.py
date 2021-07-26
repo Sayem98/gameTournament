@@ -18,13 +18,18 @@ class ProfileView(View):
 
         except:
             user = None
-        all_tournaments = TournamentsModel.objects.filter(your_email=user.email)
+        #  all_tournaments = TournamentsModel.objects.filter(your_email=user.email)
+        all_tournaments = user.creator.all()
+        # teams = user.player1.all()
+        # for team in teams:
+        #     team.tournament
 
         catagories = ['PUBG', 'Call of Duty', 'Sea of Thieves']
         return render(request, 'profile_site/profile.html', {
             'user': user,
             'catagories': catagories,
-            'all_tournaments': all_tournaments
+            'all_tournaments': all_tournaments,
+            'all_registered': user.player1.all()
         })
 
 

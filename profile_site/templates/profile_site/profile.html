@@ -8,8 +8,11 @@
         <div id="div-1">
 
 
-            <h5 id="user-name">Welcome&nbsp;{{ user.your_name.split.pop }}</h5>
-            <img src="{{ user.user_image.url }}" id="user-image">
+            <div id="image-name">
+                <img src="{{ user.user_image.url }}" id="user-image">
+                <h5 id="user-name">Welcome&nbsp;<br>{{ user.your_name.split.pop }}</h5>
+
+            </div>
             <h5 id="user-email">PUBG id:{{ user.pubgID }}</h5>
             <h5 id="user-email">Call of duty id:{{ user.Call_of_duty_id }}</h5>
             <h5 id="user-email">Sea of theves id:{{ user.Sea_of_theves_id}}</h5>
@@ -26,20 +29,27 @@
             <div id="my_tournaments">
                 {% for tournament in all_tournaments %}
                     <div id="one-tournament">
-                        <h3>Game type:{{ tournament.game_type }}</h3>
+                        <h3>{{ tournament.game_type }}</h3>
+                        <h4>Name: {{ tournament.tournament_name }}</h4>
                         <a id="yo" href="{% url 'a-tournament' tournament.id %}">
-                            <h4>Name: {{ tournament.tournament_name }}</h4>
+                            <button>Details</button>
                         </a>
                     </div>
                 {% endfor %}
             </div>
         </div>
         <div id="catagories">
-            <H1>Catagories</H1>
-            <div id="all_catagories">
-                {% for cata in catagories %}
-                 <h6><link href="">{{ cata }}</h6>
+
+            <div id="registered">
+                <button>Registered</button>
+                {% for registered in all_registered %}
+                    <h1>{{ registered.tournament.tournament_name }}</h1>
                 {% endfor %}
+            </div>
+
+            <div id="played">
+                <button>Played</button>
+
             </div>
         </div>
     </div>

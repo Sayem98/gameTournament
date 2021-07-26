@@ -1,0 +1,23 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'tournaments/register_tournament.css' %}">
+</head>
+<body>
+    <form method="post" action="{% url 'update-tournament' tournament.id %}">
+        {% csrf_token %}
+        <h4>Your tournament:</h4>
+        {{ tournament }}
+        <br>
+        <h4>Update Information:</h4>
+        {{ form }}
+        <button type="submit"> Update</button>
+    </form>
+</body>
+</html>

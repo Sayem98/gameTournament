@@ -22,10 +22,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-j=b1c&i@l@z2^@gu6o9_8s9&*!wrmpz$dm(_tvb4#8zcqvr9+q'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
-
-ALLOWED_HOSTS = ['play-tournament.herokuapp.com']
-
+# DEBUG = False
+DEBUG = True
+# ALLOWED_HOSTS = ['play-tournament.herokuapp.com']
+ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [

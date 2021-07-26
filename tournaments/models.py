@@ -19,10 +19,12 @@ class TournamentsModel(models.Model):
 class TeamsModel(models.Model):
     team_name = models.CharField(max_length=20, default='My Team')
     player1 = models.CharField(max_length=10)
+
     player2 = models.CharField(max_length=10)
     player3 = models.CharField(max_length=10)
     player4 = models.CharField(max_length=10)
-    leader = models.CharField(max_length=10)
+    leader = models.ForeignKey(UserModel, on_delete=models.CASCADE, related_name='player1', default=None)
+    # leader = models.CharField(max_length=10)
     tournament = models.ForeignKey(TournamentsModel, on_delete=models.CASCADE, related_name='teams')
 
     def __str__(self):
