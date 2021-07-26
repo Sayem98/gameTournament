@@ -30,6 +30,9 @@ ALLOWED_HOSTS = ['play-tournament.herokuapp.com']
 
 INSTALLED_APPS = [
     'login_site',
+
+
+
     'profile_site',
     'tournaments',
     'django.contrib.admin',

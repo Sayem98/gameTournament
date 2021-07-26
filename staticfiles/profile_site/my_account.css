@@ -26,11 +26,14 @@
 }
 
 #user-name{
-    padding: 1rem 1rem 1rem 1rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
     text-align: center;
     background-color: #d1e7ff;
     width: 95%;
-    height: 10%;
+    height: 15%;
     margin-left: .3rem;
     margin-top: .5rem;
     margin-right: .2rem;
@@ -44,7 +47,9 @@
     border-radius: 25px;
 
 }
-
+#user-name h1{
+    font-size: 1vw;
+}
 
 
 #user-email{
@@ -61,8 +66,10 @@
 }
 #user-image{
 
-    padding: 1rem 1rem 1rem 1rem;
+
     border-radius: 25%;
+    width: 40%;
+    height: 50%;
 
 
 }
