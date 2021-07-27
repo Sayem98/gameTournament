@@ -195,6 +195,10 @@ body{
     box-shadow: 0 0 0 0;
 
 }
+#registered h1 a{
+    text-decoration: none;
+    color: #4d4d4d;
+}
 #registered button{
     font-size: 1.5vw;
 

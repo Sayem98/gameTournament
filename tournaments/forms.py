@@ -13,6 +13,7 @@ class TournamentsForm(forms.Form):
     your_email = forms.EmailField(label='Your Email')
     fee = forms.CharField(max_length=5, label='Fee')
     team_numbers = forms.CharField(max_length=2)
+    last_register_date = forms.DateField(label='Last Registration date')
 
 
 class UpdateTournamentsForm(forms.Form):

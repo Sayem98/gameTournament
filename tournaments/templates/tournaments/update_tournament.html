@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="{% static 'tournaments/register_tournament.css' %}">
 </head>
 <body>
-    <form method="post" action="{% url 'update-tournament' tournament.id %}">
+    <form method="post" action="{% url 'update-tournament' tournament.slug %}">
         {% csrf_token %}
         <h4>Your tournament:</h4>
         {{ tournament }}

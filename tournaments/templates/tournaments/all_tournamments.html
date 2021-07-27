@@ -9,7 +9,7 @@
     <div id="all_tournaments">
         {% for tournament in all_tournaments %}
             <div id="a">
-                <a href="{% url 'a-tournament' tournament.id %}">
+                <a href="{% url 'a-tournament' tournament.slug %}">
                     <h3 id="yo">{{ tournament.tournament_name.capitalize }}</h3>
                 </a>
                 <h4>{{ tournament.game_type.capitalize }}</h4>

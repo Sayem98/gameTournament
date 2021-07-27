@@ -25,10 +25,14 @@ class TournamentsView(View):
                                           tournament_name=form.cleaned_data['tournament_name'],
                                           your_email=form.cleaned_data['your_email'], fee=form.cleaned_data['fee'],
                                           team_numbers=form.cleaned_data['team_numbers'],
-                                          creator_name=UserModel.objects.filter(id=id)[0])
+                                          creator_name=UserModel.objects.filter(id=id)[0],
+                                          last_register_date=form.cleaned_data['last_register_date'])
             tournament.save()
 
             return redirect('home', id=id)  # to home but session is needed...But what if multiple people are trying?
+        return render(request, 'tournaments/tournaments.html', {
+            'form': form
+        })
 
 
 class All_TournamentsView(View):
@@ -41,9 +45,10 @@ class All_TournamentsView(View):
 
 
 class A_tournamentView(View):
-    def get(self, request, id):
+    def get(self, request, slug):
+        print(slug)
         try:
-            tournament = TournamentsModel.objects.get(id=id)
+            tournament = TournamentsModel.objects.get(slug=slug)
             registered_teams = tournament.teams.all()
 
         except:
@@ -68,16 +73,16 @@ class A_tournamentView(View):
 
 # Update tournament for the creator of the tournament only
 class UpdateTournamentView(View):
-    def get(self, request, id):
+    def get(self, request, slug):
         form = UpdateTournamentsForm()
-        tournament = TournamentsModel.objects.get(id=id)
+        tournament = TournamentsModel.objects.get(slug=slug)
         return render(request, 'tournaments/update_tournament.html', {
             'form': form,
             'tournament': tournament
         })
 
-    def post(self, request, id):
-        tournament = TournamentsModel.objects.get(id=id)
+    def post(self, request, slug):
+        tournament = TournamentsModel.objects.get(slug=slug)
         form = UpdateTournamentsForm(request.POST)
         if form.is_valid():
             tournament.tournament_name = form.cleaned_data['tournament_name']
@@ -85,21 +90,30 @@ class UpdateTournamentView(View):
             tournament.fee = form.cleaned_data['fee']
             tournament.team_numbers = form.cleaned_data['team_numbers']
             tournament.save()
-            return redirect('a-tournament', tournament.id)
+            return redirect('a-tournament', tournament.slug)
 
 
 class RegisterTournamentView(View):
-    def get(self, request, id):
-        tournament = TournamentsModel.objects.get(id=id)
+    def get(self, request, slug):
+        already_registered = False
+        leader_id = request.session['user_id']
+
+        # print(slug)
+        tournament = TournamentsModel.objects.get(slug=slug)
+        already_registered_teams = tournament.teams.all()
+        for team in already_registered_teams:
+            if team.leader.id == leader_id:
+                already_registered = True
         request.session['tournament_id'] = tournament.id
         form = TournamentRegisterForm()
         return render(request, 'tournaments/register_a_tournament.html', {
             'form': form,
-            'id': tournament.id,
+            'slug': tournament.slug,
+            'already_registered': already_registered
 
         })
 
-    def post(self, request, id):
+    def post(self, request, slug):
         team = TournamentRegisterForm(request.POST)
         user_id = request.session['user_id']
         # tournament = request.session['tournament_id']
@@ -108,11 +122,11 @@ class RegisterTournamentView(View):
                                     player2=team.cleaned_data['player2'],
                                     player3=team.cleaned_data['player3'], player4=team.cleaned_data['player4'],
                                     leader=UserModel.objects.get(id=user_id),
-                                    tournament=TournamentsModel.objects.filter(id=id)[0])
+                                    tournament=TournamentsModel.objects.filter(slug=slug)[0])
 
             team_model.save()
-            return redirect('a-tournament', id)
+            return redirect('a-tournament', slug)
         return render(request, 'tournaments/register_a_tournament.html', {
             'form': team,
-            'id': id
+            'slug': slug
         })

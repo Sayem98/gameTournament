@@ -31,7 +31,7 @@
                     <div id="one-tournament">
                         <h3>{{ tournament.game_type }}</h3>
                         <h4>Name: {{ tournament.tournament_name }}</h4>
-                        <a id="yo" href="{% url 'a-tournament' tournament.id %}">
+                        <a id="yo" href="{% url 'a-tournament' tournament.slug %}">
                             <button>Details</button>
                         </a>
                     </div>
@@ -43,7 +43,7 @@
             <div id="registered">
                 <button>Registered</button>
                 {% for registered in all_registered %}
-                    <h1>{{ registered.tournament.tournament_name }}</h1>
+                    <h1><a href="{% url 'a-tournament' registered.tournament.slug %}">{{ registered.tournament.tournament_name }}</a></h1>
                 {% endfor %}
             </div>
 

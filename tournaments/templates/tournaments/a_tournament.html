@@ -10,20 +10,22 @@
         <div id="game_data">
             <h1 id="name">{{ tournament.tournament_name| title }}</h1>
             <h2>{{ tournament.game_type|title }}</h2>
+            <h2>{{ tournament.creation_date }}</h2>
 
             <h2>Fee: {{ tournament.fee }}Tk</h2>
             <h2>Teams: {{ tournament.team_numbers }}</h2>
-            <h2>Creator: {{ creator.your_name }}<br>
+            <h2>Creator: {{ creator.your_name|title }}<br>
                 <h8>{{ creator.email }}</h8>
             </h2>
 
-            <h2>slot left: {{ slots }}</h2>
+            <h2>Slot left: {{ slots }}</h2>
+            <h2>Ends at: {{ tournament.last_register_date }}</h2>
             {% if is_creator %}
-                <form action="{% url 'update-tournament' tournament.id %}" method="get">
+                <form action="{% url 'update-tournament' tournament.slug %}" method="get">
                     <button type="submit">Update</button>
                 </form>
             {% else %}
-                <form action="{% url 'register-a-tournament' tournament.id %}" method="get">
+                <form action="{% url 'register-a-tournament' tournament.slug %}" method="get">
                     <button type="submit">Register</button>
                 </form>
             {% endif %}
